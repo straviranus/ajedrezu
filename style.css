@@ -1,0 +1,27 @@
+body {
+    background-color: black;
+}
+
+#tablero{
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 50%;
+    margin-left: 320px;
+    margin-top: 10px;
+    position: fixed;
+}
+
+
+.casilla{
+      
+        position: fixed;   
+    }
+    
+    div[color="blanco"]{
+        background-color:#E18D14;
+      
+    }
+    div[color="negro"]{
+        background-color:#741C09;
+       
+    }
