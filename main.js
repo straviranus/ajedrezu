@@ -1,5 +1,7 @@
-window.onload= function(){
-var tamañoTablero=500;
+// Creación del tablero
+window.onload= function tablero(){
+document.onkeydown=chars;
+var tamañoTablero=520;
 var tamañoPieza=tamañoTablero/8;
 var casillas= document.querySelectorAll(".casilla");
 var left=0;
@@ -11,7 +13,6 @@ tablero.style.height=tamañoTablero;
 for (i=0; i<casillas.length; i++){
  casillas[i].style.width=tamañoPieza+"px";
  casillas[i].style.height=tamañoPieza+"px";
- casillas[i].addEventListener("click", mostrar)
 
     }
 var filasTablero= [ 
@@ -26,6 +27,7 @@ var filasTablero= [
 ]
 
 for (i=0; i<casillas.length; i++){
+    casillas[i].addEventListener("click", coordenadas)
    if ((casillas[i].getAttribute("fila")=="uno")){
        filasTablero[0].push(casillas[i]);
    }
@@ -67,11 +69,85 @@ function enfilar(fila){
         left=left+tamañoPieza;
      }
 }
-
-function mostrar(){
-    console.log(this.getBoundingClientRect())
-    console.log(this);
+function coordenadas(){
+    console.log(this.getBoundingClientRect());
 }
 
 
+}
+
+// Los movimientos permiten la continuidad del desplazamiento y 
+// tienen como valor los márgenes iniciales del div
+//console.log(pieza);
+var movimientoHorizontal=260;
+var movimientoVertical=455;
+
+function chars (evento){
+    if (window.event)
+    evento=window.
+    caracteres(evento.keyCode);
+}
+
+
+
+function caracteres (chars) {
+    var ficha= document.getElementById("pieza");
+const piezas=[
+"url(https://raw.githubusercontent.com/straviranus/imagenes-chess/master/peon.png)",
+"url(https://raw.githubusercontent.com/straviranus/imagenes-chess/master/peon.png)", 
+"url(https://raw.githubusercontent.com/straviranus/imagenes-chess/master/caballo.png)",
+"url(https://raw.githubusercontent.com/straviranus/imagenes-chess/master/torre.png)",
+"url(https://raw.githubusercontent.com/straviranus/imagenes-chess/master/dama.png)",
+"url(https://raw.githubusercontent.com/straviranus/imagenes-chess/master/alfil.png)", 
+"url(https://raw.githubusercontent.com/straviranus/imagenes-chess/master/rey.png)",
+];   
+
+
+// movilidad
+    if(chars==39) {
+        movimientoHorizontal+=10;
+        ficha.style.marginLeft = movimientoHorizontal+"px";
+    }
+    if(chars==37) {
+        movimientoHorizontal+=-10;
+        document.getElementById("pieza").style.marginLeft = movimientoHorizontal+"px";
+    }
+    if(chars==40) {
+        movimientoVertical+=10;
+        document.getElementById("pieza").style.marginTop = movimientoVertical+"px";
+    }
+    if(chars==38) {
+        movimientoVertical+=-10;
+        document.getElementById("pieza").style.marginTop = movimientoVertical+"px";
+    }
+
+
+if (movimientoHorizontal==-80) {
+    movimientoHorizontal=490;
+    var randomH= Math.abs(parseInt(Math.random()*movimientoHorizontal)%6); 
+    document.getElementById("pieza").style.backgroundImage = (piezas[randomH])    
+   
+}
+
+if (movimientoHorizontal==500) {
+    movimientoHorizontal=-70;
+    var randomH= Math.abs(parseInt(Math.random()*movimientoHorizontal)%6);
+    document.getElementById("pieza").style.backgroundImage = (piezas[randomH]);  
+    
+}
+
+if (movimientoVertical>500) {
+    movimientoVertical=-50;
+    var randomV= Math.abs(parseInt(Math.random()*movimientoVertical)%6);
+    document.getElementById("pieza").style.backgroundImage = (piezas[randomV]);
+
+}
+
+if (movimientoVertical<-70) {
+    movimientoVertical=500;
+    var randomV= Math.abs(parseInt(Math.random()*movimientoVertical)%6);
+    document.getElementById("pieza").style.backgroundImage = (piezas[randomV]);  
+
+}
+console.log(movimientoVertical,movimientoHorizontal);
 }
