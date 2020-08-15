@@ -1,13 +1,13 @@
 // Creación del tablero
 window.onload= function tablero(){
 document.onkeydown=chars;
-var tamañoTablero=520;
+var tamañoTablero=504;
 var tamañoPieza=tamañoTablero/8;
 var casillas= document.querySelectorAll(".casilla");
 var left=0;
 var tablero=document.getElementById("tablero");
-tablero.style.width=tamañoTablero;
-tablero.style.height=tamañoTablero;
+tablero.style.width=tamañoTablero+"px";
+tablero.style.height=tamañoTablero+"px";
 
 
 for (i=0; i<casillas.length; i++){
@@ -79,8 +79,8 @@ function coordenadas(){
 // Los movimientos permiten la continuidad del desplazamiento y 
 // tienen como valor los márgenes iniciales del div
 //console.log(pieza);
-var movimientoHorizontal=260;
-var movimientoVertical=455;
+var movimientoHorizontal=252;
+var movimientoVertical=441;
 
 function chars (evento){
     if (window.event)
@@ -93,61 +93,95 @@ function chars (evento){
 function caracteres (chars) {
     var ficha= document.getElementById("pieza");
 const piezas=[
-"url(https://raw.githubusercontent.com/straviranus/imagenes-chess/master/peon.png)",
-"url(https://raw.githubusercontent.com/straviranus/imagenes-chess/master/peon.png)", 
-"url(https://raw.githubusercontent.com/straviranus/imagenes-chess/master/caballo.png)",
-"url(https://raw.githubusercontent.com/straviranus/imagenes-chess/master/torre.png)",
-"url(https://raw.githubusercontent.com/straviranus/imagenes-chess/master/dama.png)",
-"url(https://raw.githubusercontent.com/straviranus/imagenes-chess/master/alfil.png)", 
-"url(https://raw.githubusercontent.com/straviranus/imagenes-chess/master/rey.png)",
+"url(imagenes/peon.png)",
+"url(imagenes/peon.png)", 
+"url(imagenes/caballo.png)",
+"url(imagenes/torre.png)",
+"url(imagenes/dama.png)",
+"url(imagenes/alfil.png)", 
+"url(imagenes/rey.png)",
 ];   
 
 
 // movilidad
     if(chars==39) {
-        movimientoHorizontal+=10;
-        ficha.style.marginLeft = movimientoHorizontal+"px";
+        movimientoHorizontal+=9;
+    movimiento(ficha);
     }
     if(chars==37) {
-        movimientoHorizontal+=-10;
-        document.getElementById("pieza").style.marginLeft = movimientoHorizontal+"px";
+        movimientoHorizontal+=-9;
+    movimiento(ficha);
     }
     if(chars==40) {
-        movimientoVertical+=10;
-        document.getElementById("pieza").style.marginTop = movimientoVertical+"px";
+        movimientoVertical+=9;
+    movimiento(ficha);
     }
     if(chars==38) {
-        movimientoVertical+=-10;
-        document.getElementById("pieza").style.marginTop = movimientoVertical+"px";
+        movimientoVertical+=-9;
+    movimiento(ficha);
     }
 
+    // Cambiar de un lado a otro
+if (movimientoHorizontal==522){
 
-if (movimientoHorizontal==-80) {
-    movimientoHorizontal=490;
-    var randomH= Math.abs(parseInt(Math.random()*movimientoHorizontal)%6); 
-    document.getElementById("pieza").style.backgroundImage = (piezas[randomH])    
-   
+    movimientoHorizontal=-72
+    movimiento(ficha);
 }
+if (movimientoHorizontal==-81){
 
-if (movimientoHorizontal==500) {
-    movimientoHorizontal=-70;
-    var randomH= Math.abs(parseInt(Math.random()*movimientoHorizontal)%6);
-    document.getElementById("pieza").style.backgroundImage = (piezas[randomH]);  
+    movimientoHorizontal=513
+    movimiento(ficha);
+}
+if (movimientoVertical==522){
     
+    movimientoVertical=-54
+    movimiento(ficha);
+}
+if (movimientoVertical==-81){
+
+    movimientoVertical=513
+    movimiento(ficha);
+}
+// TRANSFORMACIÓN 
+if(
+    (movimientoHorizontal==504)||(movimientoHorizontal==-63)||
+    (movimientoVertical==504) 
+)
+{
+    trasnformar(ficha); 
 }
 
-if (movimientoVertical>500) {
-    movimientoVertical=-50;
-    var randomV= Math.abs(parseInt(Math.random()*movimientoVertical)%6);
-    document.getElementById("pieza").style.backgroundImage = (piezas[randomV]);
-
+// REY ESCONDIDO
+if(
+    (movimientoVertical==-63)&&(movimientoHorizontal==252)
+)
+{
+    ficha.style.backgroundImage ="url(imagenes/rey.png)";
+    ficha.setAttribute("rey", "true");
 }
 
-if (movimientoVertical<-70) {
-    movimientoVertical=500;
-    var randomV= Math.abs(parseInt(Math.random()*movimientoVertical)%6);
-    document.getElementById("pieza").style.backgroundImage = (piezas[randomV]);  
+// Función de transformar pieza
+function trasnformar(piece){
+    var random=Math.abs(parseInt(Math.random()*movimientoVertical)%6);
+   piece.removeAttribute("rey");
+    piece.style.backgroundImage = (piezas[random]);  
 
 }
-console.log(movimientoVertical,movimientoHorizontal);
+// Función de movimiento
+function movimiento(piece){
+    if (piece.getAttribute("inmovil")!="true") {
+    piece.style.marginLeft = movimientoHorizontal+"px";
+    piece.style.marginTop = movimientoVertical+"px";
+    }
+}
+// JUEGO GANADO
+if(
+    (movimientoVertical==441)&&(movimientoHorizontal==252)
+    &&(pieza.getAttribute("rey")=="true")
+)
+{
+    pieza.style.backgroundColor="green";
+    pieza.setAttribute("inmovil", "true");
+
+}
 }

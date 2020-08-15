@@ -8,8 +8,8 @@ body {
     vertical-align: middle;
     line-height: 50%;
     margin-left: 420px;
-    margin-top: 15px;
-   
+    margin-top: 35px;
+    overflow: hidden; 
 }
 
 
@@ -27,15 +27,14 @@ body {
        
     }
 #pieza{
-    width: 65px;
-    height: 65px;
-    background-image: url(https://raw.githubusercontent.com/straviranus/imagenes-chess/master/rey.png);
+    width: 63px;
+    height: 63px;
+    background-image: url(imagenes/rey.png);
     background-size: 100% 100%;
     object-fit: cover;
     object-position: center;
     position: relative;
-    margin-left: 260px;
-    margin-top: 455px;
-    background-color: red;
+    margin-left: 252px;
+    margin-top: 441px;
     
 }
