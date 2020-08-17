@@ -5,12 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tablero de Ajedrez</title>
     <link rel="stylesheet" href="style.css">
+
+    <script src="game.js"></script>
     <script src="main.js"></script>
+    <audio src="Danubio.mp3" controls="" id="danubio"></audio>
+    <audio src="aplausos_4.mp3" controls="" id="aplausos"></audio>
+    <audio src="campanita.mp3" controls="" id="campanita"></audio>
 
 
 </head>
 <body>
-
+    <button id="boton" onclick="iniciar()"> Empezar juego </button>
+    
+    <div id="contenedor">
+        <div id="caja-pieza">
+        <div id="caballo" class="ficha"></div>
+        <div id="dama" class="ficha"></div>
+        <div id="alfil" class="ficha"></div>
+        <div id="torre" class="ficha"></div>
+        <div id="peon" class="ficha"></div>
+        <div id="peon" class="ficha"></div>
+    </div>
     <div id="tablero">
         <!-- primera fila --> 
      
@@ -99,6 +114,8 @@
 
    <div id="pieza" rey="false"></div>   
     </div>
+</div>
+  
     
 </body>
 </html>

@@ -2,15 +2,36 @@ body {
     background-color: black;
     position: absolute;
 }
+#contenedor{
+    vertical-align: middle;
+    line-height: 50%;
+    margin-top: 35px;
+    height: 504;
+    width: 1300px;
+    position: absolute;
+   display: flex;
+}
 
 #tablero{
     display: inline-block;
     vertical-align: middle;
     line-height: 50%;
     margin-left: 420px;
-    margin-top: 35px;
     overflow: hidden; 
+    position: relative;
+    visibility: hidden;
 }
+.bajar{
+    animation-name: bajando;
+    animation-duration: 4s;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+}
+@keyframes bajando{
+    0%{top: -8px}
+    100%{top: 35px;}
+}
+
 
 
 .casilla{
@@ -36,5 +57,129 @@ body {
     position: relative;
     margin-left: 252px;
     margin-top: 441px;
+    opacity: 0.0;
     
+}
+#caballo{
+    width: 63px;
+    height: 63px;
+    background-image: url(imagenes/caballo.png);
+    
+}
+#alfil{
+    width: 63px;
+    height: 63px;
+    background-image: url(imagenes/alfil.png);
+     
+}
+#dama{
+    width: 63px;
+    height: 63px;
+    background-image: url(imagenes/dama.png);
+     
+}
+#torre{
+    width: 63px;
+    height: 63px;
+    background-image: url(imagenes/torre.png);
+     
+}
+#peon{
+    width: 63px;
+    height: 63px;
+    background-image: url(imagenes/peon.png);
+     
+}
+.ficha{
+    width: 63px;
+    height: 63px;
+    background-size: 100% 100%;
+    visibility: hidden;
+
+}
+
+.volar-1{
+    display: block;
+    animation-name: vuelo-1;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    position: relative;
+    animation-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+}
+.volar-2{
+    display: block;
+    animation-name: vuelo-2;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    position: relative;
+    animation-timing-function: cubic-bezier(0.95, 0.05, 0.795, 0.035);
+}
+.volar-3{
+    display: block;
+    animation-name: vuelo-3;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    position: relative;
+    animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+.volar-4{
+    display: block;
+    animation-name: vuelo-3;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    position: relative;
+    animation-timing-function: cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+.circulo{
+    display: block;
+    animation-name: circular;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    position: relative;
+    animation-timing-function: linear;
+    
+}
+@keyframes vuelo-1{
+    0%{ left: 0px ; top: 100px;}
+    25%{ left: 100px ; top: 250px;}
+    50%{ left: 300px ; top: 200px;}
+    75%{ left: 1000px ; top: 0px;}
+    100%{ left: 0px ; top: 100px;}
+}
+@keyframes vuelo-2{
+    0%{ left: 1000px ; top: 100px;}
+    25%{ left: 300px ; top: 350px;}
+    50%{ left: 300px ; top: 100px;}
+    75%{ left: 700px ; top: 0px;}
+    100%{ left: 0px ; top: 100px;}
+}
+@keyframes vuelo-3{
+    0%{ left: 200px ; top: 320px;}
+    25%{ left: 100px ; top: 110px;}
+    50%{ left: 300px ; top: 200px;}
+    75%{ left: 1200px ; top: 0px;}
+    100%{ left: 0px ; top: 300px;}
+}
+@keyframes vuelo-4{
+    0%{ left: 500px ; top: 200px;}
+    25%{ left: 100px ; top: 0px;}
+    50%{ left: 100px ; top: 100px;}
+    75%{ left: 1200px ; top: 0px;}
+    100%{ left: 0px ; top: 300px;}
+}
+@keyframes circular{
+    0%{ left: 200px;}
+    50%{ left: 200px;}
+    100%{ left: 200px;}
+    from { transform: rotate(0deg)  translate(-100px) rotate(0deg); }
+    to { transform: rotate(360deg) translate(-100px) rotate(-360deg); }
+}
+#danubio{
+    display: none;
+}
+#aplausos{
+    display: none;
+}
+#campanita{
+    display: none;
 }
