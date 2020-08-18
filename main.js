@@ -1,16 +1,17 @@
 // Creación del tablero
 function iniciar() {
+    var Tablero=document.getElementById("tablero");
 document.getElementById("boton").style.display="none";
 document.getElementById("danubio").play();
 setTimeout(aparecer,3000);
-tablero.classList.add("bajar")
-tablero.style.visibility="visible";
+Tablero.classList.add("bajar")
+Tablero.style.visibility="visible";
+}
 
 function aparecer(){
   
     for (i = 0; i <= 10; i++) {
     setTimeout("document.getElementById('pieza').style.opacity = " + (i / 10) + "", i * 300);
-    // document.getElementById("pieza").style.display ="block"; 
     setTimeout(teclas,3000);
     
         }
@@ -18,81 +19,13 @@ function aparecer(){
     function teclas(){
         document.onkeydown=chars;
     }
-}
+
 window.onload= function tablero(){
+    var Tablero=document.getElementById("tablero");
+    console.log(Tablero.getBoundingClientRect());
 
 
 
-// Animación rey
-
-var tamañoTablero=504;
-var tamañoPieza=tamañoTablero/8;
-var casillas= document.querySelectorAll(".casilla");
-var left=0;
-var tablero=document.getElementById("tablero");
-tablero.style.width=tamañoTablero+"px";
-tablero.style.height=tamañoTablero+"px";
-
-
-for (i=0; i<casillas.length; i++){
- casillas[i].style.width=tamañoPieza+"px";
- casillas[i].style.height=tamañoPieza+"px";
-
-    }
-var filasTablero= [ 
-[tamañoTablero-tamañoPieza], 
-[tamañoTablero-2*tamañoPieza], 
-[tamañoTablero-3*tamañoPieza],
-[tamañoTablero-4*tamañoPieza],
-[tamañoTablero-5*tamañoPieza],
-[tamañoTablero-6*tamañoPieza],
-[tamañoTablero-7*tamañoPieza],
-[tamañoTablero-8*tamañoPieza]
-]
-
-for (i=0; i<casillas.length; i++){
-   // casillas[i].addEventListener("click", coordenadas)
-   if ((casillas[i].getAttribute("fila")=="uno")){
-       filasTablero[0].push(casillas[i]);
-   }
-   if ((casillas[i].getAttribute("fila")=="dos")){
-    filasTablero[1].push(casillas[i]);
-}
-if ((casillas[i].getAttribute("fila")=="tres")){
-    filasTablero[2].push(casillas[i]);
-}
-
-if ((casillas[i].getAttribute("fila")=="cuatro")){
-    filasTablero[3].push(casillas[i]);
-}
-
-if ((casillas[i].getAttribute("fila")=="cinco")){
-    filasTablero[4].push(casillas[i]);
-}
-if ((casillas[i].getAttribute("fila")=="seis")){
-    filasTablero[5].push(casillas[i]);
-}
-if ((casillas[i].getAttribute("fila")=="siete")){
-    filasTablero[6].push(casillas[i]);
-}
-if ((casillas[i].getAttribute("fila")=="ocho")){
-    filasTablero[7].push(casillas[i]);
-}
-}
-
-for (n=0; n<filasTablero.length; n++){
-    enfilar(filasTablero[n])
-       }
-
-
-function enfilar(fila){
-    left=0;
-    for (i=1; i<fila.length; i++){
-       fila[i].style.marginTop=fila[0]+"px";
-        fila[i].style.marginLeft=left+"px";
-        left=left+tamañoPieza;
-     }
-}
 
 }
 
@@ -108,6 +41,8 @@ function chars (evento){
     if (window.event)
     evento=window.
     caracteres(evento.keyCode);
+   
+  
 }
 
 console.log(chars);
@@ -226,7 +161,9 @@ function danzar(){
     fichas[1].classList.add("volar-2");
     fichas[2].classList.add("volar-3");
     fichas[3].classList.add("volar-4");
-    fichas[4].classList.add("circulo");
+   // fichas[4].classList.add("circulo");
+   // fichas[5].classList.add("circulo-2");
+
     
 }
 // Necesito una función que me de valores aleatorios de 1 a 4 sin repetirse

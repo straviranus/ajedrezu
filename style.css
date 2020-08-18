@@ -1,25 +1,41 @@
+html{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
 body {
     background-color: black;
-    position: absolute;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+  
 }
 #contenedor{
     vertical-align: middle;
     line-height: 50%;
-    margin-top: 35px;
     height: 504;
     width: 1300px;
-    position: absolute;
    display: flex;
+   
 }
 
 #tablero{
-    display: inline-block;
-    vertical-align: middle;
+ 
+    width: 504px;
+    height: 504px;
     line-height: 50%;
-    margin-left: 420px;
+    display: grid;
+    grid-template-columns: repeat(8, 12.5%);
+    grid-template-rows: repeat(8, 12.5%);
     overflow: hidden; 
-    position: relative;
-    visibility: hidden;
+    position: fixed;
+    visibility:hidden;
+    margin: auto;
+
 }
 .bajar{
     animation-name: bajando;
@@ -28,16 +44,11 @@ body {
     animation-timing-function: linear;
 }
 @keyframes bajando{
-    0%{top: -8px}
-    100%{top: 35px;}
+    0%{top: 0px}
+    100%{top: 60.5px;}
 }
 
 
-
-.casilla{
-      
-        position: fixed;   
-    }
     
     div[color="blanco"]{
         background-color:#E18D14;
@@ -46,6 +57,13 @@ body {
     div[color="negro"]{
         background-color:#741C09;
        
+    }
+    #board{
+        width: 504px;
+        height: 504px;
+        margin:auto;
+        overflow: hidden;
+        
     }
 #pieza{
     width: 63px;
@@ -58,7 +76,6 @@ body {
     margin-left: 252px;
     margin-top: 441px;
     opacity: 0.0;
-    
 }
 #caballo{
     width: 63px;
@@ -94,45 +111,55 @@ body {
     width: 63px;
     height: 63px;
     background-size: 100% 100%;
-    visibility: hidden;
+ visibility: hidden;
+    
 
 }
 
 .volar-1{
     display: block;
     animation-name: vuelo-1;
-    animation-duration: 2s;
+    animation-duration: 5s;
     animation-iteration-count: infinite;
     position: relative;
-    animation-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+    animation-timing-function: ease-in
 }
 .volar-2{
     display: block;
     animation-name: vuelo-2;
-    animation-duration: 3s;
+    animation-duration: 5s;
     animation-iteration-count: infinite;
     position: relative;
-    animation-timing-function: cubic-bezier(0.95, 0.05, 0.795, 0.035);
+    animation-timing-function: ease;
 }
 .volar-3{
     display: block;
     animation-name: vuelo-3;
-    animation-duration: 4s;
+    animation-duration: 6s;
     animation-iteration-count: infinite;
     position: relative;
-    animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+
 }
 .volar-4{
     display: block;
-    animation-name: vuelo-3;
+    animation-name: vuelo-4;
     animation-duration: 5s;
     animation-iteration-count: infinite;
     position: relative;
-    animation-timing-function: cubic-bezier(0.785, 0.135, 0.15, 0.86);
+    animation-timing-function: linear;
 }
 .circulo{
     display: block;
     animation-name: circular;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    position: relative;
+    animation-timing-function: linear;
+    
+}
+.circulo-2{
+    display: block;
+    animation-name: circular-2;
     animation-duration: 3s;
     animation-iteration-count: infinite;
     position: relative;
@@ -147,30 +174,37 @@ body {
     100%{ left: 0px ; top: 100px;}
 }
 @keyframes vuelo-2{
-    0%{ left: 1000px ; top: 100px;}
+    0%{ left: 800px ; top: 100px;}
     25%{ left: 300px ; top: 350px;}
     50%{ left: 300px ; top: 100px;}
-    75%{ left: 700px ; top: 0px;}
-    100%{ left: 0px ; top: 100px;}
+    75%{ left: 1180px ; top: 0px;}
+    100%{ left: 800px ; top: 100px;}
 }
 @keyframes vuelo-3{
     0%{ left: 200px ; top: 320px;}
     25%{ left: 100px ; top: 110px;}
     50%{ left: 300px ; top: 200px;}
     75%{ left: 1200px ; top: 0px;}
-    100%{ left: 0px ; top: 300px;}
+    100%{ left: 200px ; top: 320px;}
 }
 @keyframes vuelo-4{
-    0%{ left: 500px ; top: 200px;}
+    0%{ left: 500px ; top: -80px;}
     25%{ left: 100px ; top: 0px;}
-    50%{ left: 100px ; top: 100px;}
-    75%{ left: 1200px ; top: 0px;}
-    100%{ left: 0px ; top: 300px;}
+    50%{ left: 1100px ; top: 100px;}
+    75%{ left: 700px ; top: 0px;}
+    100%{ left: 500px ; top: -80px;}
 }
 @keyframes circular{
     0%{ left: 200px;}
     50%{ left: 200px;}
     100%{ left: 200px;}
+    from { transform: rotate(0deg)  translate(-100px) rotate(0deg); }
+    to { transform: rotate(360deg) translate(-100px) rotate(-360deg); }
+}
+@keyframes circular-2{
+    0%{ left: 1150px; top: 100px;}
+    50%{ left: 1250px; top: 100px;}
+    100%{ left: 1250px; top: 100px;}
     from { transform: rotate(0deg)  translate(-100px) rotate(0deg); }
     to { transform: rotate(360deg) translate(-100px) rotate(-360deg); }
 }
