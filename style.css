@@ -22,49 +22,16 @@ body {
    display: flex;
    
 }
-
-#tablero{
- 
-    width: 504px;
+#caja-1{
     height: 504px;
-    line-height: 50%;
-    display: grid;
-    grid-template-columns: repeat(8, 12.5%);
-    grid-template-rows: repeat(8, 12.5%);
-    overflow: hidden; 
-    position: fixed;
-    visibility:hidden;
-    margin: auto;
-
-}
-.bajar{
-    animation-name: bajando;
-    animation-duration: 4s;
-    animation-fill-mode: forwards;
-    animation-timing-function: linear;
-}
-@keyframes bajando{
-    0%{top: 0px}
-    100%{top: 60.5px;}
-}
-
-
+    width: 300px;
     
-    div[color="blanco"]{
-        background-color:#E18D14;
-      
-    }
-    div[color="negro"]{
-        background-color:#741C09;
-       
-    }
-    #board{
-        width: 504px;
-        height: 504px;
-        margin:auto;
-        overflow: hidden;
-        
-    }
+}
+#caja-2{
+    height: 504px;
+    width: 300px;
+}
+
 #pieza{
     width: 63px;
     height: 63px;
@@ -77,143 +44,19 @@ body {
     margin-top: 441px;
     opacity: 0.0;
 }
-#caballo{
-    width: 63px;
-    height: 63px;
-    background-image: url(imagenes/caballo.png);
-    
-}
-#alfil{
-    width: 63px;
-    height: 63px;
-    background-image: url(imagenes/alfil.png);
-     
-}
-#dama{
-    width: 63px;
-    height: 63px;
-    background-image: url(imagenes/dama.png);
-     
-}
-#torre{
-    width: 63px;
-    height: 63px;
-    background-image: url(imagenes/torre.png);
-     
-}
-#peon{
-    width: 63px;
-    height: 63px;
-    background-image: url(imagenes/peon.png);
-     
-}
-.ficha{
-    width: 63px;
-    height: 63px;
-    background-size: 100% 100%;
- visibility: hidden;
-    
 
+.opacidad{
+    animation-name: aparecer;
+    animation-duration: 4s;
+    animation-timing-function: linear;
+    animation-delay: 4s;
+    animation-fill-mode: forwards;
+}
+@keyframes aparecer{
+    0%{opacity: 0.0;}
+    100%{opacity: 1;}
 }
 
-.volar-1{
-    display: block;
-    animation-name: vuelo-1;
-    animation-duration: 5s;
-    animation-iteration-count: infinite;
-    position: relative;
-    animation-timing-function: ease-in
-}
-.volar-2{
-    display: block;
-    animation-name: vuelo-2;
-    animation-duration: 5s;
-    animation-iteration-count: infinite;
-    position: relative;
-    animation-timing-function: ease;
-}
-.volar-3{
-    display: block;
-    animation-name: vuelo-3;
-    animation-duration: 6s;
-    animation-iteration-count: infinite;
-    position: relative;
-
-}
-.volar-4{
-    display: block;
-    animation-name: vuelo-4;
-    animation-duration: 5s;
-    animation-iteration-count: infinite;
-    position: relative;
-    animation-timing-function: linear;
-}
-.circulo{
-    display: block;
-    animation-name: circular;
-    animation-duration: 3s;
-    animation-iteration-count: infinite;
-    position: relative;
-    animation-timing-function: linear;
-    
-}
-.circulo-2{
-    display: block;
-    animation-name: circular-2;
-    animation-duration: 3s;
-    animation-iteration-count: infinite;
-    position: relative;
-    animation-timing-function: linear;
-    
-}
-@keyframes vuelo-1{
-    0%{ left: 0px ; top: 100px;}
-    25%{ left: 100px ; top: 250px;}
-    50%{ left: 300px ; top: 200px;}
-    75%{ left: 1000px ; top: 0px;}
-    100%{ left: 0px ; top: 100px;}
-}
-@keyframes vuelo-2{
-    0%{ left: 800px ; top: 100px;}
-    25%{ left: 300px ; top: 350px;}
-    50%{ left: 300px ; top: 100px;}
-    75%{ left: 1180px ; top: 0px;}
-    100%{ left: 800px ; top: 100px;}
-}
-@keyframes vuelo-3{
-    0%{ left: 200px ; top: 320px;}
-    25%{ left: 100px ; top: 110px;}
-    50%{ left: 300px ; top: 200px;}
-    75%{ left: 1200px ; top: 0px;}
-    100%{ left: 200px ; top: 320px;}
-}
-@keyframes vuelo-4{
-    0%{ left: 500px ; top: -80px;}
-    25%{ left: 100px ; top: 0px;}
-    50%{ left: 1100px ; top: 100px;}
-    75%{ left: 700px ; top: 0px;}
-    100%{ left: 500px ; top: -80px;}
-}
-@keyframes circular{
-    0%{ left: 200px;}
-    50%{ left: 200px;}
-    100%{ left: 200px;}
-    from { transform: rotate(0deg)  translate(-100px) rotate(0deg); }
-    to { transform: rotate(360deg) translate(-100px) rotate(-360deg); }
-}
-@keyframes circular-2{
-    0%{ left: 1150px; top: 100px;}
-    50%{ left: 1250px; top: 100px;}
-    100%{ left: 1250px; top: 100px;}
-    from { transform: rotate(0deg)  translate(-100px) rotate(0deg); }
-    to { transform: rotate(360deg) translate(-100px) rotate(-360deg); }
-}
-#danubio{
-    display: none;
-}
-#aplausos{
-    display: none;
-}
-#campanita{
+.audio{
     display: none;
 }

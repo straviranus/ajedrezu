@@ -5,10 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tablero de Ajedrez</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="tablero.css">
+    <link rel="stylesheet" href="final.css">
+    <link rel="stylesheet" href="pistas.css">
 <script src="main.js"></script>
-    <audio src="Danubio.mp3" controls="" id="danubio"></audio>
-    <audio src="aplausos_4.mp3" controls="" id="aplausos"></audio>
-    <audio src="campanita.mp3" controls="" id="campanita"></audio>
+    <audio src="Audios/Danubio.mp3" controls="" id="danubio" class="audio"></audio>
+    <audio src="Audios/aplausos_4.mp3" controls="" id="aplausos" class="audio"></audio>
+    <audio src="Audios/campanita.mp3" controls="" id="campanita" class="audio"></audio>
 
 
 </head>
@@ -17,11 +20,11 @@
     
     <div id="contenedor">
         <button id="boton" onclick="iniciar()"> Empezar juego </button>
-        <div id="caja-pieza">
+        <div id="caja-1">
         <div id="caballo" class="ficha"></div>
         <div id="dama" class="ficha"></div>
-        <div id="alfil" class="ficha"></div>
-        <div id="torre" class="ficha"></div>
+        <div id="pista-1" class="pista"></div>
+        <div id="pista-3" class="pista"></div>
     </div>
     <div id="board"> 
     <div id="tablero">
@@ -115,6 +118,13 @@
     </div>
 <div id="pieza" rey="false"></div> 
     </div>
+    <div id="caja-2">
+        <div id="alfil" class="ficha"></div>
+        <div id="torre" class="ficha"></div> 
+        <div id="pista-2" class="pista"></div>
+        <div id="pista-4" class="pista"></div>
+    </div>
+    
 </div> 
 
   
