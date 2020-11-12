@@ -7,7 +7,7 @@ document.getElementById("pieza").classList.add("opacidad");
 document.getElementById("boton").style.display="none";
 document.getElementById("danubio").play();
 setTimeout(teclas,7000);
-setInterval(pistass,110000);
+setInterval(pistass,55000);
 }
 function teclas(){
     document.onkeydown=chars;
